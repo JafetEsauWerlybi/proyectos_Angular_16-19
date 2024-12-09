@@ -1,0 +1,18 @@
+<form [formGroup]="formularioDocumento">
+  <label for="dni" class="form-label">{{ tipoDNI }}</label>
+  <input
+    [ngClass]="{
+      'is-invalid': hasError('dni', 'required') || hasError('dni', 'minlength')
+    }"
+    type="text"
+    class="form-control"
+    id="dni"
+    formControlName="dni"
+  />
+  <div class="text-danger" *ngIf="hasError('dni', 'required')">
+    DNI requerido
+  </div>
+  <div class="text-danger" *ngIf="hasError('dni', 'minlength')">
+    DNI de al menos 3 caracteres
+  </div>
+</form>

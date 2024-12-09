@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (producto of productList; track producto.id) {
+            <tr >
+              <th scope="row">{{producto.id}}</th>
+              <td>{{producto.title}}</td>
+              <td [ngClass]="{'red-color': producto.price >100}">{{producto.price | currency}}</td>
+              <td><button type="button" class="btn btn-outline-dark" [routerLink]="['/productos', producto.id]">Detalles</button></td>
+            </tr>
+          }
+          @empty {
+            <h1>No hay productos para mostrar lo sentimos:c</h1>
+          }
+         
+        </tbody>
+      </table>
+</div>

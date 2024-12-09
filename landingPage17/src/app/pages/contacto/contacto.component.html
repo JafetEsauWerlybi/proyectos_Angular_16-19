@@ -1,0 +1,51 @@
+<div class="container">
+  <form class="row g-3"(submit)="enviar($event)" [formGroup]="contactForm">
+    <input
+      type="email"
+      class="form-control"
+      id="floatingInputValue"
+      placeholder="name@example.com"
+      value="test@example.com"
+      formControlName="email"
+      ngClass="{is-invalid : hasError('email', 'required') || hasError('message', 'required')}"
+    />
+    <label for="floatingInputValue">Email</label>
+
+    @if(hasError('email', 'required')){
+        <span class="text-danger">
+            Hubo un error papu, revisa que no vaya vacio
+        </span>
+      }
+      @if(hasError('email', 'email')){
+        <span class="text-danger">
+            Hubo un error papu, revisa que el formato concuerde con un correo
+        </span>
+      }
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2"
+        style="height: 100px"
+        formControlName="message"
+        ngClass="{is-invalid : hasError('message', 'required')|| hasError('message', 'minlength) }"
+
+      ></textarea>
+      <label for="floatingTextarea2">Message</label>
+      @if(hasError('message', 'required')){
+        <span class="text-danger">
+            Hubo un error papu, revisa que no vaya vacio
+        </span>
+      }
+      @if(hasError('message', 'minlength')){
+        <span class="text-danger">
+            Hubo un error papu, revisa que cumpla con al menos 10 caracteres el mensaje
+        </span>
+      }
+
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+  </form>
+</div>

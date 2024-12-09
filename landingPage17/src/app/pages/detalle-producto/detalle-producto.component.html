@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Compra lo que más te guste;p</h1>
+</div>
+
+@if(loading){
+    <h4>Cargando datos...</h4>
+}
+@else {
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="{{producto?.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">{{producto?.title}}</p>
+              <p class="card-text">{{producto?.price | currency}}</p>
+              <p class="card-text">{{producto?.description}}</p>
+
+            </div>
+          </div>
+    </div>
+}
